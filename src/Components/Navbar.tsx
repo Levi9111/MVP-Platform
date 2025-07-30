@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Bot, User, Sparkles } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const links = [
   { name: 'Home', href: '/' },
@@ -12,9 +13,10 @@ const links = [
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
 
   const handleLogin = () => {
-    console.log('Login clicked');
+    router.push('/login');
   };
 
   return (
