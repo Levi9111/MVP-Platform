@@ -8,7 +8,6 @@ import {
   Mail,
   MapPin,
   Phone,
-  Github,
   Twitter,
   Linkedin,
   Instagram,
@@ -52,7 +51,6 @@ const Footer: React.FC = () => {
 
   const socialLinks = [
     { name: 'Twitter', href: '#', icon: Twitter },
-    { name: 'Github', href: '#', icon: Github },
     { name: 'LinkedIn', href: '#', icon: Linkedin },
     { name: 'Instagram', href: '#', icon: Instagram },
   ];
@@ -107,7 +105,7 @@ const Footer: React.FC = () => {
             />
           </div>
           <p className='text-gray-600 mb-6 max-w-2xl mx-auto'>
-            Join our community of heart-centered. Get updates on new features,
+            Join our community of heart-centereds. Get updates on new features,
             wellness tips, and exclusive content.
           </p>
 
