@@ -30,3 +30,238 @@
     --foreground: #ededed;
   }
 } */
+
+/* Navbar */
+@keyframes logoFloat {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(1deg);
+  }
+}
+
+@keyframes sparkleRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes navSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileMenuSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradientShift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-logo-float {
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+.animate-sparkle-rotate {
+  animation: sparkleRotate 4s linear infinite;
+}
+
+.animate-nav-slide-in {
+  animation: navSlideIn 0.6s ease-out forwards;
+}
+
+.animate-mobile-menu-slide {
+  animation: mobileMenuSlide 0.4s ease-out forwards;
+}
+
+.animate-gradient-shift {
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+}
+
+.glass-effect {
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-link-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-link-hover::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #9333ea, #ec4899, #3b82f6);
+  transition: left 0.3s ease;
+}
+
+.nav-link-hover:hover::before {
+  left: 0;
+}
+
+.logo-glow {
+  filter: drop-shadow(0 0 8px rgba(147, 51, 234, 0.3));
+}
+
+.stagger-nav-1 {
+  animation-delay: 0.1s;
+}
+.stagger-nav-2 {
+  animation-delay: 0.2s;
+}
+.stagger-nav-3 {
+  animation-delay: 0.3s;
+}
+.stagger-nav-4 {
+  animation-delay: 0.4s;
+}
+
+/* Hero Section Styles */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gentleFloat {
+  0%,
+  100% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(8px) rotate(2deg);
+  }
+}
+
+@keyframes sparkleFloat {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1) translateY(0px);
+  }
+  25% {
+    opacity: 0.7;
+    transform: scale(1.1) translateY(-5px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.2) translateY(-10px);
+  }
+  75% {
+    opacity: 0.6;
+    transform: scale(1.1) translateY(-5px);
+  }
+}
+
+@keyframes gentleBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseBg {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-gentle-bounce {
+  animation: gentleBounce 2s ease-in-out infinite;
+}
+
+.animate-pulse-bg {
+  animation: pulseBg 4s ease-in-out infinite;
+}
+
+.stagger-1 {
+  animation-delay: 0.1s;
+}
+.stagger-2 {
+  animation-delay: 0.3s;
+}
+.stagger-3 {
+  animation-delay: 0.5s;
+}
+.stagger-4 {
+  animation-delay: 0.7s;
+}
+.stagger-5 {
+  animation-delay: 0.9s;
+}

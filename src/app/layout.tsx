@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter, Pacifico } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist, Geist_Mono, Inter, Pacifico } from 'next/font/google';
+import './globals.css';
+import Navbar from '@/Components/Navbar';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -19,13 +20,10 @@ const pacifico = Pacifico({
   variable: '--font-heading-pacifico',
 });
 
-
-
-export const metadata:Metadata = {
+export const metadata: Metadata = {
   title: 'Soulful Play',
   description: 'Healing the heart through laughter and play',
 };
-
 
 export default function RootLayout({
   children,
@@ -33,8 +31,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${pacifico.variable}`}>
-       <body className='font-body bg-blush text-[#212121]'>
+    <html lang='en' className={`${inter.variable} ${pacifico.variable}`}>
+      <body className='font-body bg-blush text-[#212121]'>
+        <Navbar />
         {children}
       </body>
     </html>
