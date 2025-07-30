@@ -17,7 +17,33 @@ import {
   Users,
 } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const footerLinks = {
+  product: [
+    { name: 'Playground', href: '/playground' },
+    { name: 'Features', href: '/features' },
+    { name: 'Pricing', href: '/pricing' },
+  ],
+  company: [
+    { name: 'About Us', href: '/about' },
+    { name: 'Our Story', href: '/story' },
+    { name: 'Careers', href: '/careers' },
+    { name: 'Blog', href: '/blog' },
+  ],
+  support: [
+    { name: 'Help Center', href: '/help' },
+    { name: 'Contact', href: '/contact' },
+    { name: 'Privacy', href: '/privacy' },
+    { name: 'Terms', href: '/terms' },
+  ],
+};
+
+const socialLinks = [
+  { name: 'Twitter', href: '#', icon: Twitter },
+  { name: 'LinkedIn', href: '#', icon: Linkedin },
+  { name: 'Instagram', href: '#', icon: Instagram },
+];
+
+const Newsletter = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
@@ -29,32 +55,52 @@ const Footer: React.FC = () => {
     }
   };
 
-  const footerLinks = {
-    product: [
-      { name: 'Playground', href: '/playground' },
-      { name: 'Features', href: '/features' },
-      { name: 'Pricing', href: '/pricing' },
-    ],
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Story', href: '/story' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Blog', href: '/blog' },
-    ],
-    support: [
-      { name: 'Help Center', href: '/help' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Privacy', href: '/privacy' },
-      { name: 'Terms', href: '/terms' },
-    ],
-  };
+  return (
+    <div className='footer-section stagger-footer-1 text-center mb-16 p-8 rounded-2xl bg-gradient-to-r from-purple-50/50 via-pink-50/50 to-blue-50/50 backdrop-blur-sm border border-white/20'>
+      <div className='flex items-center justify-center gap-2 mb-4'>
+        <Heart className='w-6 h-6 text-pink-500 animate-heart-beat' />
+        <h3 className='text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent'>
+          Stay Connected with SoulBot
+        </h3>
+        <Heart
+          className='w-6 h-6 text-pink-500 animate-heart-beat'
+          style={{ animationDelay: '0.5s' }}
+        />
+      </div>
+      <p className='text-gray-600 mb-6 max-w-2xl mx-auto'>
+        Join our community of heart-centereds. Get updates on new features,
+        wellness tips, and exclusive content.
+      </p>
 
-  const socialLinks = [
-    { name: 'Twitter', href: '#', icon: Twitter },
-    { name: 'LinkedIn', href: '#', icon: Linkedin },
-    { name: 'Instagram', href: '#', icon: Instagram },
-  ];
+      {!isSubscribed ? (
+        <div className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'>
+          <input
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Enter your email for updates...'
+            className='flex-1 px-4 py-3 rounded-full border border-purple-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 bg-white/80 backdrop-blur-sm transition-all duration-300'
+          />
+          <button
+            onClick={handleSubscribe}
+            className='bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group animate-newsletter-pulse'
+          >
+            <Send className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
+            Subscribe
+          </button>
+        </div>
+      ) : (
+        <div className='flex items-center justify-center gap-2 text-green-600 font-semibold'>
+          <Heart className='w-5 h-5 animate-heart-beat' />
+          Thank you for subscribing!
+          <Sparkles className='w-5 h-5 animate-sparkle-float' />
+        </div>
+      )}
+    </div>
+  );
+};
 
+const Footer: React.FC = () => {
   return (
     <footer className='footer-glass mt-20 relative overflow-hidden'>
       {/* Floating sparkles */}
@@ -93,47 +139,7 @@ const Footer: React.FC = () => {
 
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10'>
         {/* Newsletter Section */}
-        <div className='footer-section stagger-footer-1 text-center mb-16 p-8 rounded-2xl bg-gradient-to-r from-purple-50/50 via-pink-50/50 to-blue-50/50 backdrop-blur-sm border border-white/20'>
-          <div className='flex items-center justify-center gap-2 mb-4'>
-            <Heart className='w-6 h-6 text-pink-500 animate-heart-beat' />
-            <h3 className='text-2xl font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent'>
-              Stay Connected with SoulBot
-            </h3>
-            <Heart
-              className='w-6 h-6 text-pink-500 animate-heart-beat'
-              style={{ animationDelay: '0.5s' }}
-            />
-          </div>
-          <p className='text-gray-600 mb-6 max-w-2xl mx-auto'>
-            Join our community of heart-centereds. Get updates on new features,
-            wellness tips, and exclusive content.
-          </p>
-
-          {!isSubscribed ? (
-            <div className='flex flex-col sm:flex-row gap-4 max-w-lg mx-auto'>
-              <input
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder='Enter your email for updates...'
-                className='flex-1 px-4 py-3 rounded-full border border-purple-200 focus:border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200 bg-white/80 backdrop-blur-sm transition-all duration-300'
-              />
-              <button
-                onClick={handleSubscribe}
-                className='bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 group animate-newsletter-pulse'
-              >
-                <Send className='w-4 h-4 group-hover:translate-x-1 transition-transform duration-200' />
-                Subscribe
-              </button>
-            </div>
-          ) : (
-            <div className='flex items-center justify-center gap-2 text-green-600 font-semibold'>
-              <Heart className='w-5 h-5 animate-heart-beat' />
-              Thank you for subscribing!
-              <Sparkles className='w-5 h-5 animate-sparkle-float' />
-            </div>
-          )}
-        </div>
+        <Newsletter />
 
         {/* Main Footer Content */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12'>
